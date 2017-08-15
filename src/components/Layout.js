@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
+import Contact from './Contact';
 
-const data = [
-  { name: 'Mauricio Serna', email: 'mauricioserf@gmail.com' },
-  { name: 'Leigh Halliday', email: 'leigh@gmail.com' },
-  { name: 'Marian Serna', email: 'marian@gmail.com' }
-]
-
-const Contact = (props) => {
-  return (
-    <div className='pure-u-1-3'>
-      <h2>{props.name}</h2>
-      <p>{props.email}</p>
-    </div>
-  )
-}
+import data from './data';
 
 class Layout extends Component {
+  addContact = (event) => {
+    event.preventDefault();
+    console.log('Click');
+  }
+
   render() {
     return (
-      <div id='Layout' className='pure-g'>
-        {data.map((info, key) => <Contact key={key} {...info} /> )}
+      <div id='Layout'>
+        <a href='#' className='pure-button' onClick={this.addContact}> Add contact </a>
+        <div className='pure-g'>
+          {data.map(info => <Contact key={info.id} {...info} />)}
+        </div>
       </div>
     );
   }
