@@ -19,22 +19,25 @@ class Layout extends Component {
     this.setState({
       contacts: contacts.concat({ 
         id: newId,
-        name: `New contact ${newId}`, 
-        email: `${newId}@exampe.com`
+        name: this.refs.name.value, 
+        email: this.refs.email.value,
       })
     });
+
+    this.refs.name.value = '';
+    this.refs.email.value = '';
   }
 
   newContact = () => {
     return (
       <div className='pure-g'>
         <div className='pure-u-12-24'>
-          <form className='pure-form'>
+          <form className='pure-form' onSubmit={this.addContact}>
             <fieldset>
               <legend> New contact </legend>
 
-              <input type='email' placeholder='example@example.com' />
-              <input type='text' placeholder='Name' />
+              <input ref='email' type='email' placeholder='example@example.com' />
+              <input ref='name' type='text' placeholder='Name' />
 
               <button type='submit' className='pure-button pure-button-primary'> Sign in </button>
             </fieldset>
