@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Contact from './Contact';
-
-import data from './data';
+import Contact from '../Contact/';
+import data from '../data';
+import './index.css';
 
 class Layout extends Component {
   componentWillMount () {
@@ -25,10 +25,29 @@ class Layout extends Component {
     });
   }
 
+  newContact = () => {
+    return (
+      <div className='pure-g'>
+        <div className='pure-u-12-24'>
+          <form className='pure-form'>
+            <fieldset>
+              <legend> New contact </legend>
+
+              <input type='email' placeholder='example@example.com' />
+              <input type='text' placeholder='Name' />
+
+              <button type='submit' className='pure-button pure-button-primary'> Sign in </button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    )
+  }
+
   render() {
     return (
       <div id='Layout'>
-        <a className='pure-button' onClick={this.addContact}> Add contact </a>
+        {this.newContact()}
         <div className='pure-g'>
           {this.state.contacts.map(info => <Contact key={info.id} {...info} />)}
         </div>
