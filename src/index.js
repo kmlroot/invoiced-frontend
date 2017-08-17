@@ -1,8 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import 'purecss/build/pure.css';
-import Layout from './components/Layout/';
+
+import React from 'react';
+import { render } from 'react-dom';
+import Routes from './routes';
+
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Layout />, document.getElementById('root'));
+render(
+	<Routes />, 
+	document.getElementById('root')
+)
+
 registerServiceWorker();
