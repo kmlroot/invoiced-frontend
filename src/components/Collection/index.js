@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Contact from '../Contact/';
 import data from '../data';
-import styles from './index.sass';
+import styles from './index.css';
 
 class Collection extends Component {
   componentWillMount () {
