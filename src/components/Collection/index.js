@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { observer } from 'mobx-react';
+
 import Contact from '../Contact/';
 import data from '../data';
 import './index.css';
 
+@observer(['contacts'])
 class Collection extends Component {
   componentWillMount () {
     this.setState({
