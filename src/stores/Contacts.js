@@ -11,6 +11,14 @@ class Contacts {
     const existing = this.all;
     this.all = existing.concat(data);
   }
+
+  @action find(contactId) {
+    return (
+      this.all.slice().filter(
+        contact => contact.id === parseInt(contactId, 10)
+      )[0]
+    );
+  }
 }
 
 export default new Contacts();
