@@ -1,4 +1,9 @@
-.contact a {
+.contact h2 a {
   text-decoration: none;
   color: #34495e;
+}
+
+.removeButton {
+  background: #e74c3c;
+  color: #ecf0f1;
 }
